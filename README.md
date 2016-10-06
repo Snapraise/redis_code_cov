@@ -1,8 +1,12 @@
 # RedisCodeCov
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/redis_code_cov`. To experiment with that code, run `bin/console` for an interactive prompt.
+Would you like to know how much of your Rails app code in production is actually getting used?  And how often?  When we run our tests we can use code coverage metrics (like https://github.com/colszowka/simplecov) to see which parts of our code are not tested.  
 
-TODO: Delete this and the text above, and describe your gem
+This can be a great tool to see which parts of your code are used often and perhaps need to be improved for performance or test coverage.  Also, you can see which parts of your code are not exercised and perhaps those features can be removed.  
+
+Warning - this is ALPHA quality software, be careful before running it in production.  It will increment a Redis counter for EACH method call.  Depeneding on your traffic it could slow down your application.  
+
+Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/redis_code_cov`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 ## Installation
 
@@ -22,7 +26,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create config/initializers/redis_code_cov.rb:
+```ruby
+redis_conn = Redis.new(host: 'localhost', port: 6379, db: 0)
+REDIS_CODE_COV =  Redis::Namespace.new('codecov', redis: redis_conn)
+```
+
+In your ApplicationController (or another controller) add
+```ruby
+include RedisCodeCov::Controller
+```
+
+TODO - add ability to track method calls in models, views, jobs, etc.  
 
 ## Development
 
@@ -38,4 +53,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
