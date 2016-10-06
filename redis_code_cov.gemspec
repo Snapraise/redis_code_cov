@@ -32,9 +32,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
 
   # =>
-  spec.add_runtime_dependency 'activesupport', '~> 5.0'
+  spec.add_runtime_dependency 'activesupport'
   spec.add_runtime_dependency 'redis', '~> 3.3'
   spec.add_runtime_dependency 'redis-namespace', '~> 1.5'
-  spec.add_runtime_dependency 'readthis', '~> 2.0'
+  spec.add_runtime_dependency 'readthis'
   #spec.add_runtime_dependency 'hiredis', '~> 0.6'
 end
