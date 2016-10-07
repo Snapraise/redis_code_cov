@@ -6,8 +6,6 @@ This can be a great tool to see which parts of your code are used often and perh
 
 Warning - this is ALPHA quality software, be careful before running it in production.  It will increment a Redis counter for EACH method call.  Depeneding on your traffic it could slow down your application.  
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/redis_code_cov`. To experiment with that code, run `bin/console` for an interactive prompt.
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -37,7 +35,20 @@ In your ApplicationController (or another controller) add
 include RedisCodeCov::Controller
 ```
 
-TODO - add ability to track method calls in models, views, jobs, etc.  
+TODO:
+
+write more tests
+
+Track method calls in:
+helpers
+jobs
+mailers
+models
+views
+For other gems:
+serializers
+decorators
+pundit policies
 
 ## Development
 

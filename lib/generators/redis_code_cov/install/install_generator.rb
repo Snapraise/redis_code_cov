@@ -1,0 +1,11 @@
+module RedisCodeCov
+  module Generators
+    class InstallGenerator < ::Rails::Generators::Base
+      source_root File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
+
+      def copy_initializer
+        template 'redis_code_cov.rb', 'config/initializers/redis_code_cov.rb'
+      end
+    end
+  end
+end

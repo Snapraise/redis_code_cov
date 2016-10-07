@@ -13,7 +13,9 @@ module RedisCodeCov
     end
     def redis_code_cov
       key = [self.class.name, params[:action]].join('.')
-      REDIS_CODE_COV.incr key
+      REDIS_CODE_COV.incr key unless EXCLUDE_REDIS_CODE_COV.include? key
+    rescue Exception => e
+      # => TODO - for now just doing nothing
     end
   end
 
