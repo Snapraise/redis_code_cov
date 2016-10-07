@@ -24,16 +24,14 @@ Or install it yourself as:
 
 ## Usage
 
-Create config/initializers/redis_code_cov.rb:
-```ruby
-redis_conn = Redis.new(host: 'localhost', port: 6379, db: 0)
-REDIS_CODE_COV =  Redis::Namespace.new('codecov', redis: redis_conn)
-```
+After install run `rails g redis_code_cov:install`.  Configure the gem in `config/initializers/redis_code_cov.rb`
 
-In your ApplicationController (or another controller) add
+In your ApplicationController (or another controller) add:
 ```ruby
 include RedisCodeCov::Controller
 ```
+
+Data will be stored in Redis DB and namespace configured in the initializer.  
 
 TODO:
 
@@ -45,10 +43,13 @@ jobs
 mailers
 models
 views
+
 For other gems:
-serializers
-decorators
+active model serializers
+draper decorators
 pundit policies
+
+Should there be a default TTL for Redis records?  It will help get rid of long tail of methods that are infrequently used.
 
 ## Development
 
