@@ -26,9 +26,14 @@ Or install it yourself as:
 
 After install run `rails g redis_code_cov:install`.  Configure the gem in `config/initializers/redis_code_cov.rb`
 
-In your ApplicationController (or another controller) add:
+In ApplicationController (or another controller) add:
 ```ruby
 include RedisCodeCov::Controller
+```
+
+In ApplicationJob add:
+```ruby
+include RedisCodeCov::Job
 ```
 
 Data will be stored in Redis DB and namespace configured in the initializer.  
@@ -39,7 +44,6 @@ write more tests
 
 Track method calls in:
 helpers
-jobs
 mailers
 models
 views
@@ -48,8 +52,6 @@ For other gems:
 active model serializers
 draper decorators
 pundit policies
-
-Should there be a default TTL for Redis records?  It will help get rid of long tail of methods that are infrequently used.
 
 ## Development
 
