@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   # =>
   spec.add_development_dependency 'mock_redis', '~> 0.17', '>= 0.17.0'
   # =>
-  spec.add_runtime_dependency 'activesupport', '~> 4.2', '>= 4.2.7'
+  spec.add_runtime_dependency 'activesupport', '>= 4.2.7'
   spec.add_runtime_dependency 'redis', '~> 3.3'
   spec.add_runtime_dependency 'redis-namespace', '~> 1.5'
   spec.add_runtime_dependency 'readthis', '~> 1.3', '>= 1.3.0'
